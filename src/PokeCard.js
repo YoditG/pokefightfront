@@ -20,25 +20,28 @@ const useStyles = makeStyles({
 
 export default function PokeCard(props) {
   const classes = useStyles();
-
+  // const handleSelection = props.handleSelection
+  // const handleEnemy = props.handleEnemy
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
+     
         <CardMedia
           className={classes.media}
-          image={props.pokemon.image}
-          title={props.pokemon.name}
+          image={props.image}
+          title={props.pokemon.name.english}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {props.pokemon.name}
+            {props.pokemon.name.english}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
            Eigenschaften
           </Typography>
         </CardContent>
       </CardActionArea>
+      {props.flag && 
       <CardActions>
         <Button size="small" color="primary">
           Share
@@ -48,7 +51,7 @@ export default function PokeCard(props) {
           Select
         </Button>
         </Link>
-      </CardActions>
+      </CardActions>}
     </Card>
   );
 }

@@ -34,7 +34,13 @@ function App() {
     setOpponent(enemy);
   }
 
- 
+  useEffect(() => {
+    console.log(opponent)
+   
+  }, [opponent])
+  
+  
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -52,14 +58,15 @@ function App() {
         <Route path="/:id">
 
         </Route>
-        <Route path="/battle" pokemon={selected} opponent={opponent}>
-          <Battle/>
+        <Route path="/battle" >
+          <Battle pokemon={selected} opponent={opponent}/>
         </Route>
         <Route path="/" >
           {allPokemon&&allPokemon.length&& 
           
           <ChoosePokemon allPokemon={allPokemon} handleEnemy={handleEnemy} handleSelection={handleSelection} />}
         </Route>
+        
       </Switch>
     </div>
   );
