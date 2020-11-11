@@ -2,13 +2,14 @@ import logo from './logo.svg';
 import name from './name.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
-import { Route, Switch, Link} from "react-router-dom";
+import { Route, Switch, Link,useHistory} from "react-router-dom";
 //import PokeInfo from "./PokeInfo.js";
 import ChoosePokemon from "./ChoosePokemon.js"
 import { Grid } from '@material-ui/core';
 import Battle from './Battle.js'
 
 function App() {
+  const history = useHistory();
   //const [start,setStart] = useState(false);
   const [allPokemon, setAllPokemon] = useState(null);
   const [allPokemon2,setAllPokemon2] = useState(null);
@@ -27,8 +28,10 @@ function App() {
     
   },[])
 
-  const handleSelection = (pokemon)=>{
+  const handleSelection = (pokemon,opponent)=>{
     setSelected(pokemon);
+    setOpponent(opponent);
+    history.push('/battle')
   }
   const handleEnemy = (enemy)=>{
     setOpponent(enemy);
@@ -54,9 +57,6 @@ function App() {
       <Switch>
         <Route path="/:id/:info">
           {/* <PokeInfo /> */}
-        </Route>
-        <Route path="/:id">
-
         </Route>
         <Route path="/battle" >
           <Battle pokemon={selected} opponent={opponent}/>

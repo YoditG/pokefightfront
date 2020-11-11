@@ -46,11 +46,11 @@ export default function PokeCard(props) {
         <Button size="small" color="primary">
           Share
         </Button>
-        <Link to="/battle" >
-        <Button onClick={(e)=>props.handleSelection(props.pokemon) } size="small" color="primary">
+        
+        <Button onClick={(e)=>props.handleSelection(props.pokemon, props.opponent) } size="small" color="primary">
           Select
         </Button>
-        </Link>
+        
       </CardActions>}
     </Card>
   );

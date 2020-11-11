@@ -6,7 +6,7 @@ const Battle = (props) => {
   return (
     <div>
       <h1>huhu</h1>
-      {props.opponent.name}
+      {props.pokemon.name.english}
     </div>
   );
 };

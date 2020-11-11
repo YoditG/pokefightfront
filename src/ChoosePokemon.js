@@ -9,6 +9,7 @@ const ChoosePokemon = (props) => {
   const allPokemon = props.allPokemon;
   const randomEnemy = allPokemon[Math.floor(0 + Math.random() * 808)];
   
+  
 
   //const [pokemon,setPokemon] = useState("");
   const link =
@@ -35,6 +36,7 @@ const ChoosePokemon = (props) => {
               return (
                 <PokeCard
                   pokemon={poke}
+                  opponent={randomEnemy}
                   image={`${link}${poke.id}.png`}
                   handleSelection={props.handleSelection}
                   flag={true}
@@ -48,12 +50,6 @@ const ChoosePokemon = (props) => {
             image={`${link}${randomEnemy.id}.png`}
             flag={false}
           />
-        </Box>
-        <Box>
-            <Link to="/battle">
-            <button onClick={()=>props.handleEnemy(randomEnemy)}>Fight!!!</button>
-            </Link>
-            
         </Box>
       </Box>
     );
