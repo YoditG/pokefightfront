@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, } from "react";
+import { Link } from 'react-router-dom';
 import BattleCards from "./BattleCards.js";
 
 // importing material ui grid components
@@ -6,21 +7,14 @@ import BattleCards from "./BattleCards.js";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-}));
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 
 
 const Battle = (props) => {
+
+
 
   const link =
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/";
@@ -111,11 +105,34 @@ const Battle = (props) => {
 
   return (
     <div>
-      <h1>You entered the arena</h1>
-      <h3>{starter.name} begins!</h3>
-      <BattleCards pokemon={playerPokemon} />
-      <BattleCards pokemon={enemyPokemon} />
-      <button onClick={() => fullFight(waiter, starter)}> Fight! </button>
+      <Grid container 
+        spacing={3}
+        direction="row"
+        justify="center"
+        alignItems="flex-start"
+      >
+        
+        <Grid item lg={12}>
+          <Typography variant="h2" gutterBottom>You entered the arena</Typography>
+        </Grid>
+        <Grid item lg={12}>
+        <Typography variant="h4" gutterBottom>{starter.name} begins!</Typography>
+        </Grid>
+        <Grid item lg={6} justify="center" alignItems="flex-start" direction="row">
+          <BattleCards pokemon={playerPokemon} />
+        </Grid>
+        <Grid item lg={6} justify="center" alignItems="flex-start" direction="row">
+          <BattleCards pokemon={enemyPokemon} />
+        </Grid>
+        <Grid item lg={6}>
+          <Link to="/">
+            <Button variant="contained"> Duck Out </Button>
+          </Link>
+        </Grid>
+        <Grid item lg={6}>
+          <Button variant="contained" color="secondary" onClick={() => fullFight(waiter, starter)}> Fight! </Button>
+        </Grid>
+      </Grid>
     </div>
   );
 };

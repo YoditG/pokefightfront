@@ -13,7 +13,7 @@ import PokeProperties from './PokeProperties';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: 250,
   },
   media: {
     height: 140,
